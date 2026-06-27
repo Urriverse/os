@@ -1,0 +1,9 @@
+[general]
+name    = "Esh"
+desc    = "Embedded kernel-space shell."
+type    = "kernel-module"
+source  = "git"
+
+[git]
+url     = "https://github.com/Urriverse/km-esh.git"
+filter  = "latest-commit"

@@ -1,0 +1,4 @@
+[modules]
+on-startup = [
+    "esh",
+]

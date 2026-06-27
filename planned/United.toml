@@ -1,0 +1,9 @@
+[general]
+name    = "United"
+desc    = "Lightweight system initialization orchestrator."
+type    = "kernel-module"
+source  = "git"
+
+[git]
+url     = "https://github.com/Urriverse/km-united.git"
+filter  = "latest-commit"

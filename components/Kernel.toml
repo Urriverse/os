@@ -1,0 +1,13 @@
+[general]
+name    = "Kernel"
+desc    = "OS kernel made by Urriverse."
+type    = "kernel"
+source  = "git"
+
+[git]
+url     = "https://github.com/Urriverse/kernel.git"
+filter  = "latest-commit"
+
+[commands]
+build   = [ "make", "-f",   "etc/Makefile", "build" ]
+test    = [ "make", "-f",   "etc/Makefile", "test"  ]

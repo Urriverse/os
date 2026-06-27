@@ -1,0 +1,17 @@
+[general]
+name                = "Limine"
+desc                = "Limine bootloader"
+type                = "bootloader/limine"
+source              = "fetch"
+
+[fetch]
+url                 = "https://github.com/limine-bootloader/limine/releases/download/v{LIMINE_VERSION}/limine-binary.tar.gz"
+
+[limine]
+prepare             = ["make", "--no-print-directory", "-s", "limine"]
+cpy-root            = ["limine-bios.sys", "limine-bios-cd.bin", "limine-uefi-cd.bin"]
+efi-boot            = "BOOTX64.EFI"
+bios-install        = ["limine", "bios-install"]
+
+[fetch.defaults]
+LIMINE_VERSION      = "12.3.2"

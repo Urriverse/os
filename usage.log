@@ -1,0 +1,78 @@
+~/Projects/Urriverse/os main*
+> osenv c debug
+INF:  Active configuration set to: debug
+
+~/Projects/Urriverse/os main*
+> osenv b
+INF: Fetched:   Kernel
+INF: Fetched:   Limine
+    Updating crates.io index
+     Locking 24 packages to latest Rust 1.98.0-nightly compatible versions
+   Compiling bit_field v0.10.3
+   Compiling byteorder v1.5.0
+   Compiling const_fn v0.4.12
+   Compiling rustversion v1.0.22
+   Compiling scopeguard v1.2.0
+   Compiling bitflags v2.13.0
+   Compiling bitflags v1.3.2
+   Compiling heapless v0.9.3
+   Compiling x86 v0.52.0
+   Compiling stable_deref_trait v1.2.1
+   Compiling log v0.4.33
+   Compiling volatile v0.4.6
+   Compiling spin v0.9.8
+   Compiling extrum v0.1.3
+   Compiling limine v0.6.5
+   Compiling elf v0.8.0
+   Compiling raw-cpuid v10.7.0
+   Compiling lock_api v0.4.14
+   Compiling lazy_static v1.5.0
+   Compiling pci_types v0.10.1
+   Compiling hash32 v0.3.1
+   Compiling spinning_top v0.3.0
+   Compiling acpi v6.1.1
+   Compiling x86_64 v0.15.4
+   Compiling kernel v0.4.3-2.5 (/home/vi/Projects/Urriverse/os/.cache/Kernel)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 8.32s
+INF: Deployed:   Kernel
+INF: Deployed:   Limine
+INF: Build complete:   build/osenv.iso
+
+~/Projects/Urriverse/os main* 13s
+> osenv r
+INF: Running:   QEMU
+~             0.00 CPU #0 :          src/main.rs:162 :  INFO: Kernel v0.4.3-2.5 started.
+~             0.00 CPU #0 : src/arch/amd64/gdt.rs:394 :  INFO: Initialized
+~             0.00 CPU #0 : src/arch/amd64/idt.rs:398 :  INFO: Initialized
+~             0.00 CPU #2 : src/arch/amd64/gdt.rs:427 :  INFO: Initialized
+~             0.00 CPU #1 : src/arch/amd64/gdt.rs:427 :  INFO: Initialized
+~             0.00 CPU #3 : src/arch/amd64/gdt.rs:427 :  INFO: Initialized
+~             0.00 CPU #1 : src/arch/amd64/idt.rs:410 :  INFO: Initialized
+~             0.00 CPU #3 : src/arch/amd64/idt.rs:410 :  INFO: Initialized
+~             0.00 CPU #0 :       src/mem/ema.rs:37  :  INFO: Initialized
+~             0.00 CPU #2 : src/arch/amd64/idt.rs:410 :  INFO: Initialized
+~             0.00 CPU #0 :       src/mem/kdm.rs:27  :  INFO: Initialized, offset: 0xFFFF800000000000
+~             0.00 CPU #0 :       src/mem/pfm.rs:290 :  INFO: Initialized. Max PFN: 268435456, Sections allocated: 1043, Max Sections: 65536
+~             0.00 CPU #0 :       src/mem/bsa.rs:250 :  INFO: Initialized 0 - 4096
+~             0.00 CPU #0 :       src/mem/bsa.rs:250 :  INFO: Initialized 4096 - 1048576
+~             0.00 CPU #0 :       src/mem/bsa.rs:250 :  INFO: Initialized 1048576 - 268435456
+~             0.00 CPU #0 :       src/mem/bsa.rs:332 :  INFO: Initialized
+~             0.00 CPU #0 :       src/mem/upa.rs:56  :  INFO: Migrated
+~             0.00 CPU #0 :       src/mem/soa.rs:236 :  INFO: Initialized
+~             0.00 CPU #0 :       src/rt/gall.rs:75  :  INFO: Initialized
+~             0.00 CPU #0 : src/arch/amd64/paging.rs:404 : DEBUG: Created PDPT[511] for vaddr 0xFFFFFFFFFFFFF000
+~             0.00 CPU #0 : src/arch/amd64/timer.rs:256 :  INFO: APIC timer calibrated: 677 ticks per 10ms
+~             0.00 CPU #0 :           src/dev.rs:350 :  INFO: Initialized
+~             0.00 CPU #0 :     src/sched/mod.rs:44  :  INFO: Initialized with SMP Balancing
+~             0.02 CPU #0 :          src/main.rs:325 : TRACE: reaped zombie task TaskId(1) "boot", exit code: 400
+~             0.03 CPU #0 :      src/ebus/mod.rs:213 :  INFO: Initialized
+~             0.04 CPU #1 :      src/ebus/mod.rs:164 :  INFO: Started per-CPU worker
+~             0.04 CPU #3 :      src/ebus/mod.rs:164 :  INFO: Started per-CPU worker
+~             0.04 CPU #2 :      src/ebus/mod.rs:164 :  INFO: Started per-CPU worker
+~             0.04 CPU #0 :      src/ebus/mod.rs:164 :  INFO: Started per-CPU worker
+~             0.05 CPU #0 :      src/ebus/mod.rs:139 :  INFO: Started global worker
+~             0.07 CPU #0 :     src/sched/mod.rs:527 :  INFO: Process 10 SEGFAULT at 0x20 (RIP: 0xFFFFFFFF8008EA56, code: 0x0, task: init)
+~             0.09 CPU #0 :          src/main.rs:325 : TRACE: reaped zombie task TaskId(3) "boot", exit code: 400
+~             0.11 CPU #0 :          src/main.rs:325 : TRACE: reaped zombie task TaskId(5) "boot", exit code: 400
+~             0.13 CPU #0 :          src/main.rs:325 : TRACE: reaped zombie task TaskId(7) "boot", exit code: 400
+~             0.15 CPU #0 :          src/main.rs:325 : TRACE: reaped zombie task TaskId(10) "init", exit code: 139
